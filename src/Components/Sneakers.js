@@ -8,7 +8,6 @@ function Sneakers( {sneakers} ) {
   return (
     <div className="Apparels">
       <section className="apparelGrid">
-        {/* {console.log(sneakers)} */}
         {sneakers.map((sneaker) => (
           <Sneaker key={sneaker.id} sneaker={sneaker}/>
         ))}
