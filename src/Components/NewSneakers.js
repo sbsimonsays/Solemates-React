@@ -5,33 +5,32 @@ import Sneakers from "./Sneakers";
 import "../Styles/Stylin.css";
 
 function NewSneakers() {
+  const [sneakers, setSneakers] = useState([]);
+  const [visibility, setVisibility] = useState(false);
 
-const [sneakers, setSneakers] = useState([]);
-const [visibility, setVisibility] = useState(false);
-
-const getNewSneakers = () => {
-const options = {
-      method: 'GET',
-      url: 'https://the-sneaker-database.p.rapidapi.com/sneakers',
-      params: {limit: '44', colorway: colorway, gender: gender},
+  const getNewSneakers = () => {
+    const options = {
+      method: "GET",
+      url: "https://the-sneaker-database.p.rapidapi.com/sneakers",
+      params: { limit: "88", colorway: colorway, gender: gender },
       headers: {
-        'X-RapidAPI-Key': '3721c4154bmshf8b8fa402318928p17d369jsn6e4b19186f45',
-        'X-RapidAPI-Host': 'the-sneaker-database.p.rapidapi.com'
-      }
+        "X-RapidAPI-Key": "3721c4154bmshf8b8fa402318928p17d369jsn6e4b19186f45",
+        "X-RapidAPI-Host": "the-sneaker-database.p.rapidapi.com",
+      },
     };
 
     axios
-    .request(options)
-    .then(function (response) {
-      setSneakers(response.data.results);
-      // console.log(response.data);
-      // console.log(response.data.results[2].name) -- "Air Jordan 7 Retro 'Cardinal' 2022"
-      // name and thumbnail.size - what I need for SneakerIndex to display in grid fashion
-    })
-    .catch(function (error) {
+      .request(options)
+      .then(function (response) {
+        setSneakers(response.data.results);
+        // console.log(response.data);
+        // console.log(response.data.results[2].name) -- "Air Jordan 7 Retro 'Cardinal' 2022"
+        // name and thumbnail.size - what I need for SneakerIndex to display in grid fashion
+      })
+      .catch(function (error) {
         console.error(error);
-    });
-}
+      });
+  };
 
   const [colorway, setColorway] = useState("");
   const handleColorChange = (event) => {
@@ -46,7 +45,7 @@ const options = {
   const handleSubmit = (event) => {
     event.preventDefault();
     setVisibility(true);
-    getNewSneakers(setSneakers);
+    getNewSneakers(sneakers);
   };
 
   return (
@@ -54,7 +53,7 @@ const options = {
       <br></br>
       <h1>FIND YOUR SOLEMATE</h1>
       <form onSubmit={handleSubmit}>
-      <input
+        <input
           id="gender"
           value={gender}
           type="text"
@@ -66,7 +65,7 @@ const options = {
           id="colorway"
           value={colorway}
           type="text"
-          placeholder="Color?"
+          placeholder="Color(s)?"
           onChange={handleColorChange}
           required
         />
@@ -76,7 +75,7 @@ const options = {
       </form>
 
       {visibility ? <Sneakers sneakers={sneakers} /> : null}
-      
+
     </div>
   );
 }

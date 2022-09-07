@@ -35,7 +35,11 @@ function ApparelDetails() {
       <article className="Apparels">
         <div>
           <h2>{apparel.name}</h2>
-          <img className="ApparelImg" src={apparel.image} alt={apparel.name}></img>
+          <img
+            className="ApparelImg"
+            src={apparel.image}
+            alt={apparel.name}
+          ></img>
           {/* <h5>Shoe Size: {apparel.shoesize} </h5>
           <h5>Budget: ${apparel.budget} </h5>
           <h5>Color: {apparel.color} </h5> */}

@@ -65,7 +65,7 @@ function EditApparel() {
           required
         />
         <br></br>
-         <label htmlFor="shoesize">Shoe Size:</label>
+        <label htmlFor="shoesize">Shoe Size:</label>
         <input
           id="shoesize"
           type="number"

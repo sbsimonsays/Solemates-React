@@ -95,9 +95,9 @@ function NewApparel() {
         <br></br>
         <input type="submit" />
         <br></br>
-      <Link to={`/apparels`}>
-      <button>NEVERMIND</button>
-      </Link>
+        <Link to={`/apparels`}>
+          <button>NEVERMIND</button>
+        </Link>
       </form>
     </div>
   );
